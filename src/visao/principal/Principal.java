@@ -1,11 +1,14 @@
-package visao;
-import java.awt.GridLayout;
+package visao.principal;
+import dados.*;
 
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Principal extends JFrame {
+public class Principal extends JFrame implements ActionListener {
 	
 	public JLabel lMensagem;
 	public JButton 	bCadastrarDisciplina, 
@@ -27,11 +30,43 @@ public class Principal extends JFrame {
 		setLayout(new GridLayout(5, 1));
 		add(lMensagem);
 		add(bCadastrarDisciplina);
+		bCadastrarDisciplina.addActionListener(this);
 		add(bCadastrarTurma);
+		bCadastrarTurma.addActionListener(this);
 		add(bCadastrarProfessor);
+		bCadastrarProfessor.addActionListener(this);
 		add(bCadastrarAluno);
+		bCadastrarAluno.addActionListener(this);
 		
 		setVisible(true);
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		try {
+			if (e.getSource() == bCadastrarDisciplina) {
+				
+				
+				
+			} else if (e.getSource() == bCadastrarTurma) {
+				
+				
+				
+			} else if (e.getSource() == bCadastrarProfessor) {
+				
+				
+				
+			} else if (e.getSource() == bCadastrarAluno) {
+				
+				
+				
+			}
+			
+		} catch(Exception e2) {
+			
+		}
+		
 	}
 	
 	
