@@ -1,5 +1,5 @@
 package controle.executora;
-import visao.*;
+import visao.principal.*;
 
 public class Executora {
 	
