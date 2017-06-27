@@ -5,17 +5,6 @@ public abstract class Aluno {
 	private String nome;
 	private String semestreIngresso;
 	
-	public Aluno() {
-		
-	}
-	
-	public Aluno(int matricula, String nome, String semestreIngresso) {
-		setMatricula(matricula);
-		setNome(nome);
-		setSemestreIngresso(semestreIngresso);
-	}
-	
-	
 	public int getMatricula() {
 		return matricula;
 	}
