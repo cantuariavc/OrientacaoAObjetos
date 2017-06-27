@@ -1,3 +1,4 @@
+package dados.aluno;
 import java.util.Date;
 
 public class Graduacao extends Aluno {

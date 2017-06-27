@@ -1,4 +1,7 @@
+package dados.aluno;
 import java.util.Date;
+
+import dados.professor.Professor;
 
 public class PosGraduacao extends Aluno {
 

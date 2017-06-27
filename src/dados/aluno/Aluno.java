@@ -1,3 +1,4 @@
+package dados.aluno;
 
 public abstract class Aluno {
 	

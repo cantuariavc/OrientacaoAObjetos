@@ -1,3 +1,4 @@
+package dados.professor;
 
 public abstract class Professor {
 
