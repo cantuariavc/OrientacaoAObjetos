@@ -8,69 +8,71 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Principal extends JFrame implements ActionListener {
+public class Principal extends JFrame {
 	
-	public JLabel lMensagem;
+	public JLabel 	lMensagem, 
+					lDisciplina, 
+					lVazio1, lVazio2, lVazio3, lVazio4, lVazio5, lVazio6, lVazio7, lVazio8;
 	public JButton 	bCadastrarDisciplina, 
-					bCadastrarTurma, 
-					bCadastrarProfessor, 
-					bCadastrarAluno, 
+					bCadastrarEstagio,
 					bSair;
 	
 	public Principal() {
 		setTitle("Sistema de Cadastro da Universide de Brasília");
-		setSize(350, 200);
+		setSize(1000, 100);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		lMensagem = new JLabel("\t\t\t\t\t\t\t Escolha uma opção:");
+		lMensagem = new JLabel("Escolha uma cadastro:");
+		lDisciplina = new JLabel("Disciplina:");
+		lVazio1 = new JLabel();
+		lVazio2 = new JLabel();
+		lVazio3 = new JLabel();
+		lVazio4 = new JLabel();
+		lVazio5 = new JLabel();
+		lVazio6 = new JLabel();
+		lVazio7 = new JLabel();
+		lVazio8 = new JLabel();
 		bCadastrarDisciplina = new JButton("Cadastrar Disciplina");
-		bCadastrarTurma = new JButton("Cadastrar Turma");
-		bCadastrarProfessor = new JButton("Cadastrar Professor");
-		bCadastrarAluno = new JButton("Cadastrar Aluno");
+		bCadastrarEstagio = new JButton("Cadastrar Estagio");
 		bSair = new JButton("Sair");
 		
-		setLayout(new GridLayout(6, 1));
+		setLayout(new GridLayout(2, 6));
 		add(lMensagem);
+		add(lVazio1);
+		add(lVazio2);
+		add(lVazio3);
+		add(lVazio4);
+		add(lVazio5);
+		add(lDisciplina);
 		add(bCadastrarDisciplina);
-		bCadastrarDisciplina.addActionListener(this);
-		add(bCadastrarTurma);
-		bCadastrarTurma.addActionListener(this);
-		add(bCadastrarProfessor);
-		bCadastrarProfessor.addActionListener(this);
-		add(bCadastrarAluno);
-		bCadastrarAluno.addActionListener(this);
-		add(bSair);
+		add(bCadastrarEstagio);
+		add(lVazio6);
+		add(lVazio7);
+		add(lVazio8);
+		
+		//add(bSair);
 
 		setVisible(true);
 		
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		try {
-			if (e.getSource() == bCadastrarDisciplina) {
-				
-				
-				
-			} else if (e.getSource() == bCadastrarTurma) {
-				
-				
-				
-			} else if (e.getSource() == bCadastrarProfessor) {
-				
-				
-				
-			} else if (e.getSource() == bCadastrarAluno) {
-				
-				
-				
-			}
-			
-		} catch(Exception e2) {
-			
-		}
-		
-	}
-	
+/*	
+ * implements ActionListener 
+ * @Override
+ *	public void actionPerformed(ActionEvent e) {
+ *		try {
+ *			if (e.getSource() == bCadastrarDisciplina) {
+ *				
+ *				
+ *	 		} else if (e.getSource() == bCadastrarAluno) {
+ *				
+ *		}
+ *			
+ *		} catch(Exception e2) {
+ *			
+ *		}
+ *		
+ *	}
+ */
 	
 }
