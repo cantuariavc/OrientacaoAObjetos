@@ -10,23 +10,26 @@ public class VisaoAluno extends JFrame {
 	public JLabel lMensagem;
 	public JButton	bCadastrarGraduacao, 
 					bCadastrarPosGraduacao, 
-					bCadastrarEspecial;
+					bCadastrarEspecial, 
+					bSair;
 	
 	public VisaoAluno() {
 		setTitle("Cadastrar Aluno");
-		setSize(300, 400);
+		setSize(250, 160);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		lMensagem = new JLabel("\t\t\t\t\t\t\t Escolha uma opção de aluno:");
-		bCadastrarGraduacao = new JButton("bCadastrarGraduacao");
-		bCadastrarPosGraduacao = new JButton("bCadastrarPosGraduacao");
-		bCadastrarEspecial = new JButton("bCadastrarEspecial");
+		bCadastrarGraduacao = new JButton("Cadastrar Graduação");
+		bCadastrarPosGraduacao = new JButton("Cadastrar Pós-Graduação");
+		bCadastrarEspecial = new JButton("Cadastrar Especial");
+		bSair = new JButton("Sair");
 
-		setLayout(new GridLayout(4, 1));
+		setLayout(new GridLayout(5, 1));
 		add(lMensagem);
 		add(bCadastrarGraduacao);
 		add(bCadastrarPosGraduacao);
 		add(bCadastrarEspecial);
+		add(bSair);
 
 		setVisible(true);
 	}
