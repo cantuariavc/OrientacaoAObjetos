@@ -15,8 +15,7 @@ public class Principal extends JFrame {
 					lTurma, 
 					lProfessor, 
 					lAluno, 
-					lVazio1, lVazio2, lVazio3, lVazio4, lVazio5, lVazio6, lVazio7, lVazio8, 
-					lVazio9, lVazio10, lVazio11, lVazio12, lVazio13, lVazio14;
+					lVazio1, lVazio2, lVazio3, lVazio4, lVazio5, lVazio6, lVazio7, lVazio8;
 	public JButton 	bCadastrarDisciplina, 
 					bCadastrarEstagio,
 					bCadastrarTurma, 
@@ -32,7 +31,7 @@ public class Principal extends JFrame {
 	
 	public Principal() {
 		setTitle("Sistema de Cadastro da Universide de Brasília");
-		setSize(1108, 150);
+		setSize(750, 200);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		lMensagem = new JLabel("Escolha uma cadastro:");
@@ -48,12 +47,6 @@ public class Principal extends JFrame {
 		lVazio6 = new JLabel();
 		lVazio7 = new JLabel();
 		lVazio8 = new JLabel();
-		lVazio9 = new JLabel();
-		lVazio10 = new JLabel();
-		lVazio11 = new JLabel();
-		lVazio12 = new JLabel();
-		lVazio13 = new JLabel();
-		lVazio14 = new JLabel();
 		bCadastrarDisciplina = new JButton("Cadastrar");
 		bCadastrarEstagio = new JButton("Cadastrar Estágio");
 		bCadastrarTurma = new JButton("Cadastrar");
@@ -67,39 +60,31 @@ public class Principal extends JFrame {
 		bCadastrarEspecial = new JButton("Cadastrar Especial");
 		bSair = new JButton("Sair");
 		
-		setLayout(new GridLayout(5, 6));
+		setLayout(new GridLayout(6, 4));
 		add(lMensagem);
 		add(lVazio1);
 		add(lVazio2);
 		add(lVazio3);
-		add(lVazio4);
-		add(lVazio5);
 		add(lDisciplina);
 		add(bCadastrarDisciplina);
 		add(bCadastrarEstagio);
-		add(lVazio6);
-		add(lVazio7);
-		add(lVazio8);
+		add(lVazio4);
 		add(lTurma);
 		add(bCadastrarTurma);
-		add(lVazio9);
-		add(lVazio10);
-		add(lVazio11);
-		add(lVazio12);
+		add(lVazio5);
+		add(lVazio6);
 		add(lProfessor);
 		add(bCadastrarAuxiliar);
 		add(bCadastrarAssistente);
 		add(bCadastrarAdjunto);
+		add(lVazio7);
 		add(bCadastrarAssociado);
 		add(bCadastrarTitular);
+		add(lVazio8);
 		add(lAluno);
 		add(bCadastrarGraduacao);
 		add(bCadastrarPosGraduacao);
 		add(bCadastrarEspecial);
-		add(lVazio13);
-		add(lVazio14);
-		
-		//add(bSair);
 
 		setVisible(true);
 		
