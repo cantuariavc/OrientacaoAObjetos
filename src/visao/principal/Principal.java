@@ -45,11 +45,11 @@ public class Principal extends JFrame implements ActionListener {
 		setSize(750, 200);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		lMensagem = new JLabel("Escolha uma cadastro:");
-		lDisciplina = new JLabel("Disciplina:");
-		lTurma = new JLabel("Turma:");
-		lProfessor = new JLabel("Professor:");
-		lAluno = new JLabel("Aluno:");
+		lMensagem = new JLabel("\t\t\t\t\t\t\t Escolha uma cadastro:");
+		lDisciplina = new JLabel("\t\t\t\t\t\t\t Disciplina:");
+		lTurma = new JLabel("\t\t\t\t\t\t\t Turma:");
+		lProfessor = new JLabel("\t\t\t\t\t\t\t Professor:");
+		lAluno = new JLabel("\t\t\t\t\t\t\t Aluno:");
 		lVazio1 = new JLabel();
 		lVazio2 = new JLabel();
 		lVazio3 = new JLabel();
