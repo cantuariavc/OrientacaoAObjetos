@@ -1,6 +1,9 @@
 package visao.turma;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -9,7 +12,7 @@ import javax.swing.JTextField;
 import dados.disciplina.Disciplina;
 import dados.professor.Professor;
 
-public class VisaoTurma extends JFrame {
+public class VisaoTurma extends JFrame implements ActionListener {
 
 	public JLabel 	lMensagem, 
 					lCodigo, 
@@ -24,7 +27,7 @@ public class VisaoTurma extends JFrame {
 						tfProfessor;
 	public JButton	bLimpar, 
 					bCadastrar, 
-					bSair;
+					bVoltar;
 
 	public VisaoTurma() {
 		setTitle("Cadastro Turma");
@@ -44,7 +47,7 @@ public class VisaoTurma extends JFrame {
 		tfProfessor = new JTextField(15);
 		bLimpar = new JButton("Limpar");
 		bCadastrar = new JButton("Cadastrar");
-		bSair = new JButton("Sair");
+		bVoltar = new JButton("Voltar");
 		
 		setLayout(new GridLayout(7, 2));
 		add(lMensagem);
@@ -60,9 +63,17 @@ public class VisaoTurma extends JFrame {
 		add(bLimpar);
 		add(bCadastrar);
 		add(lVazio2);
-		add(bSair);
+		add(bVoltar);
+		bVoltar.addActionListener(this);
 
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == bVoltar) {
+			dispose();
+		}
 	}
 
 }
