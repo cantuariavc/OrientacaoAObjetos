@@ -1,5 +1,16 @@
 package visao.principal;
-import dados.*;
+
+import visao.aluno.VisaoEspecial;
+import visao.aluno.VisaoGraduacao;
+import visao.aluno.VisaoPosGraduacao;
+import visao.disciplina.VisaoDisciplina;
+import visao.disciplina.VisaoEstagio;
+import visao.professor.VisaoAdjunto;
+import visao.professor.VisaoAssistente;
+import visao.professor.VisaoAssociado;
+import visao.professor.VisaoAuxiliar;
+import visao.professor.VisaoTitular;
+import visao.turma.VisaoTurma;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -8,7 +19,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Principal extends JFrame {
+public class Principal extends JFrame implements ActionListener {
 	
 	public JLabel 	lMensagem, 
 					lDisciplina, 
@@ -67,46 +78,73 @@ public class Principal extends JFrame {
 		add(lVazio3);
 		add(lDisciplina);
 		add(bCadastrarDisciplina);
+		bCadastrarDisciplina.addActionListener(this);
 		add(bCadastrarEstagio);
+		bCadastrarEstagio.addActionListener(this);
 		add(lVazio4);
 		add(lTurma);
 		add(bCadastrarTurma);
+		bCadastrarTurma.addActionListener(this);
 		add(lVazio5);
 		add(lVazio6);
 		add(lProfessor);
 		add(bCadastrarAuxiliar);
+		bCadastrarAuxiliar.addActionListener(this);
 		add(bCadastrarAssistente);
+		bCadastrarAssistente.addActionListener(this);
 		add(bCadastrarAdjunto);
+		bCadastrarAdjunto.addActionListener(this);
 		add(lVazio7);
 		add(bCadastrarAssociado);
+		bCadastrarAssociado.addActionListener(this);
 		add(bCadastrarTitular);
+		bCadastrarTitular.addActionListener(this);
 		add(lVazio8);
 		add(lAluno);
 		add(bCadastrarGraduacao);
+		bCadastrarGraduacao.addActionListener(this);
 		add(bCadastrarPosGraduacao);
+		bCadastrarPosGraduacao.addActionListener(this);
 		add(bCadastrarEspecial);
+		bCadastrarEspecial.addActionListener(this);
 
 		setVisible(true);
 		
 	}
 
-/*	
- * implements ActionListener 
- * @Override
- *	public void actionPerformed(ActionEvent e) {
- *		try {
- *			if (e.getSource() == bCadastrarDisciplina) {
- *				
- *				
- *	 		} else if (e.getSource() == bCadastrarAluno) {
- *				
- *		}
- *			
- *		} catch(Exception e2) {
- *			
- *		}
- *		
- *	}
- */
+	
+   
+  @Override
+	public void actionPerformed(ActionEvent e) {
+		try {
+ 			if (e.getSource() == bCadastrarDisciplina) {
+ 				VisaoDisciplina vDisciplina = new VisaoDisciplina();
+			} else if (e.getSource() == bCadastrarEstagio) {
+ 				VisaoEstagio vEstagio = new VisaoEstagio();
+ 	 		} else if (e.getSource() == bCadastrarTurma) {
+ 				VisaoTurma vTurma = new VisaoTurma();
+ 	 		} else if (e.getSource() == bCadastrarAuxiliar) {
+ 				VisaoAuxiliar vAuxiliar = new VisaoAuxiliar();
+ 	 		} else if (e.getSource() == bCadastrarAssistente) {
+ 				VisaoAssistente vAssistente = new VisaoAssistente();
+ 	 		} else if (e.getSource() == bCadastrarAdjunto) {
+ 				VisaoAdjunto vAdjunto = new VisaoAdjunto();
+ 	 		} else if (e.getSource() == bCadastrarAssociado) {
+ 				VisaoAssociado vAssociado = new VisaoAssociado();
+ 	 		} else if (e.getSource() == bCadastrarTitular) {
+ 				VisaoTitular vTitular = new VisaoTitular();
+ 	 		} else if (e.getSource() == bCadastrarGraduacao) {
+ 				VisaoGraduacao vGraduacao = new VisaoGraduacao();
+ 	 		} else if (e.getSource() == bCadastrarPosGraduacao) {
+ 				VisaoPosGraduacao vPosGraduacao = new VisaoPosGraduacao();
+ 	 		} else if (e.getSource() == bCadastrarEspecial) {
+ 				VisaoEspecial vEspecial = new VisaoEspecial();
+ 	 		}
+ 			
+ 		} catch(Exception e2) {
+			
+ 		}
+		
+ 	}
 	
 }
