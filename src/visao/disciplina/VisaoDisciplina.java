@@ -27,7 +27,7 @@ public class VisaoDisciplina extends JFrame implements ActionListener {
 		setSize(350, 150);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		lMensagem = new JLabel("\t\t\t\t\t\t\t Cadastro Turma");
+		lMensagem = new JLabel("\t\t\t\t\t\t\t Cadastro Disciplina");
 		lNome = new JLabel("\t\t\t\t\t\t\t Nome:");
 		lCargaHoraria = new JLabel("\t\t\t\t\t\t\t Carga Horária:");
 		lVazio1 = new JLabel();

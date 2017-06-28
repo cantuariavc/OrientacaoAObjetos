@@ -39,7 +39,7 @@ public class VisaoEspecial extends JFrame implements ActionListener {
 		setSize(400, 300);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		lMensagem = new JLabel("\t\t\t\t\t\t\t Cadastro Aluno");
+		lMensagem = new JLabel("\t\t\t\t\t\t\t Cadastro Especial");
 		lMatricula = new JLabel("\t\t\t\t\t\t\t Matrícula:");
 		lNome = new JLabel("\t\t\t\t\t\t\t Nome:");
 		lSemestreIngresso = new JLabel("\t\t\t\t\t\t\t Semestre de Ingresso:");

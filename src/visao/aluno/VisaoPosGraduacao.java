@@ -35,7 +35,7 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 		setSize(400, 280);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		lMensagem = new JLabel("\t\t\t\t\t\t\t Cadastro Aluno");
+		lMensagem = new JLabel("\t\t\t\t\t\t\t Cadastro Pós-Grduação");
 		lMatricula = new JLabel("\t\t\t\t\t\t\t Matrícula:");
 		lNome = new JLabel("\t\t\t\t\t\t\t Nome:");
 		lSemestreIngresso = new JLabel("\t\t\t\t\t\t\t Semestre de Ingresso:");
