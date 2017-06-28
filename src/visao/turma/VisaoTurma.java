@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import controle.excecao.DisciplinaNaoAtribuidaException;
+import controle.excecao.InformacaoFaltanteException;
+import controle.excecao.ProfessorNaoAtribuidoException;
 import dados.disciplina.Disciplina;
 import dados.professor.Professor;
 
@@ -61,6 +64,7 @@ public class VisaoTurma extends JFrame implements ActionListener {
 		add(lProfessor);
 		add(tfProfessor);
 		add(bLimpar);
+		bLimpar.addActionListener(this);
 		add(bCadastrar);
 		add(lVazio2);
 		add(bVoltar);
@@ -71,7 +75,48 @@ public class VisaoTurma extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == bVoltar) {
+		if (e.getSource() == bLimpar) {
+			tfCodigo.setText(null);
+			tfHorario.setText(null);
+			tfDisciplina.setText(null);
+			tfProfessor.setText(null);
+		} else if (e.getSource() == bCadastrar) {
+			if (!tfCodigo.getText().isEmpty()) {
+				if (!tfHorario.getText().trim().isEmpty()) {
+					if (!tfDisciplina.getText().trim().isEmpty()) {
+						if (!tfProfessor.getText().trim().isEmpty()) {
+							
+						} else {
+								try {
+									throw new ProfessorNaoAtribuidoException("Professor não definido!");
+								} catch (ProfessorNaoAtribuidoException e1) {
+									e1.printStackTrace();
+								}
+						}
+					} else {
+						try {
+							throw new DisciplinaNaoAtribuidaException("Disciplina não definida!");
+						} catch (DisciplinaNaoAtribuidaException e1) {
+							e1.printStackTrace();
+						}
+					}
+				} else {
+					try {
+						throw new InformacaoFaltanteException("Horário não definido!");
+					} catch (InformacaoFaltanteException e1) {
+						e1.printStackTrace();
+					}
+				}
+			} else {
+				try {
+					throw new InformacaoFaltanteException("Código não definido!");
+				} catch (InformacaoFaltanteException e1) {
+					e1.printStackTrace();
+				}
+			}
+			
+
+		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}
 	}
