@@ -12,11 +12,12 @@ public class VisaoProfessor extends JFrame {
 					bCadastrarAssistente, 
 					bCadastrarAdjunto, 
 					bCadastrarAssociado, 
-					bCadastrarTitular;
+					bCadastrarTitular, 
+					bSair;
 	
 	public VisaoProfessor() {
 		setTitle("Cadastrar Professor");
-		setSize(300, 600);
+		setSize(270, 220);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		lMensagem = new JLabel("\t\t\t\t\t\t\t Escolha uma opção de professor:");
@@ -25,14 +26,16 @@ public class VisaoProfessor extends JFrame {
 		bCadastrarAdjunto = new JButton("Cadastrar Adjunto");
 		bCadastrarAssociado = new JButton("Cadastrar Associado");
 		bCadastrarTitular = new JButton("Cadastrar Titular");
+		bSair = new JButton("Sair");
 
-		setLayout(new GridLayout(6, 1));
+		setLayout(new GridLayout(7, 1));
 		add(lMensagem);
 		add(bCadastrarAuxiliar);
 		add(bCadastrarAssistente);
 		add(bCadastrarAdjunto);
 		add(bCadastrarAssociado);
 		add(bCadastrarTitular);
+		add(bSair);
 
 		setVisible(true);
 	}
