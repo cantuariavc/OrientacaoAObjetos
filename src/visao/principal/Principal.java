@@ -14,8 +14,9 @@ public class Principal extends JFrame {
 					lDisciplina, 
 					lTurma, 
 					lProfessor, 
+					lAluno, 
 					lVazio1, lVazio2, lVazio3, lVazio4, lVazio5, lVazio6, lVazio7, lVazio8, 
-					lVazio9, lVazio10, lVazio11, lVazio12;
+					lVazio9, lVazio10, lVazio11, lVazio12, lVazio13, lVazio14;
 	public JButton 	bCadastrarDisciplina, 
 					bCadastrarEstagio,
 					bCadastrarTurma, 
@@ -24,17 +25,21 @@ public class Principal extends JFrame {
 					bCadastrarAdjunto, 
 					bCadastrarAssociado, 
 					bCadastrarTitular, 
+					bCadastrarGraduacao, 
+					bCadastrarPosGraduacao, 
+					bCadastrarEspecial, 
 					bSair;
 	
 	public Principal() {
 		setTitle("Sistema de Cadastro da Universide de Brasília");
-		setSize(1000, 150);
+		setSize(1108, 150);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		lMensagem = new JLabel("Escolha uma cadastro:");
 		lDisciplina = new JLabel("Disciplina:");
 		lTurma = new JLabel("Turma:");
 		lProfessor = new JLabel("Professor:");
+		lAluno = new JLabel("Aluno:");
 		lVazio1 = new JLabel();
 		lVazio2 = new JLabel();
 		lVazio3 = new JLabel();
@@ -47,6 +52,8 @@ public class Principal extends JFrame {
 		lVazio10 = new JLabel();
 		lVazio11 = new JLabel();
 		lVazio12 = new JLabel();
+		lVazio13 = new JLabel();
+		lVazio14 = new JLabel();
 		bCadastrarDisciplina = new JButton("Cadastrar");
 		bCadastrarEstagio = new JButton("Cadastrar Estágio");
 		bCadastrarTurma = new JButton("Cadastrar");
@@ -55,9 +62,12 @@ public class Principal extends JFrame {
 		bCadastrarAdjunto = new JButton("Cadastrar Adjunto");
 		bCadastrarAssociado = new JButton("Cadastrar Associado");
 		bCadastrarTitular = new JButton("Cadastrar Titular");
+		bCadastrarGraduacao = new JButton("Cadastrar Graduação");
+		bCadastrarPosGraduacao = new JButton("Cadastrar Pós-Graduação");
+		bCadastrarEspecial = new JButton("Cadastrar Especial");
 		bSair = new JButton("Sair");
 		
-		setLayout(new GridLayout(4, 6));
+		setLayout(new GridLayout(5, 6));
 		add(lMensagem);
 		add(lVazio1);
 		add(lVazio2);
@@ -82,6 +92,12 @@ public class Principal extends JFrame {
 		add(bCadastrarAdjunto);
 		add(bCadastrarAssociado);
 		add(bCadastrarTitular);
+		add(lAluno);
+		add(bCadastrarGraduacao);
+		add(bCadastrarPosGraduacao);
+		add(bCadastrarEspecial);
+		add(lVazio13);
+		add(lVazio14);
 		
 		//add(bSair);
 
