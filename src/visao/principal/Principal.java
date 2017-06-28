@@ -12,9 +12,12 @@ public class Principal extends JFrame {
 	
 	public JLabel 	lMensagem, 
 					lDisciplina, 
-					lVazio1, lVazio2, lVazio3, lVazio4, lVazio5, lVazio6, lVazio7, lVazio8;
+					lTurma, 
+					lVazio1, lVazio2, lVazio3, lVazio4, lVazio5, lVazio6, lVazio7, lVazio8, 
+					lVazio9, lVazio10, lVazio11, lVazio12;
 	public JButton 	bCadastrarDisciplina, 
 					bCadastrarEstagio,
+					bCadastrarTurma,
 					bSair;
 	
 	public Principal() {
@@ -24,6 +27,7 @@ public class Principal extends JFrame {
 		
 		lMensagem = new JLabel("Escolha uma cadastro:");
 		lDisciplina = new JLabel("Disciplina:");
+		lTurma = new JLabel("Turma:");
 		lVazio1 = new JLabel();
 		lVazio2 = new JLabel();
 		lVazio3 = new JLabel();
@@ -32,11 +36,16 @@ public class Principal extends JFrame {
 		lVazio6 = new JLabel();
 		lVazio7 = new JLabel();
 		lVazio8 = new JLabel();
+		lVazio9 = new JLabel();
+		lVazio10 = new JLabel();
+		lVazio11 = new JLabel();
+		lVazio12 = new JLabel();
 		bCadastrarDisciplina = new JButton("Cadastrar Disciplina");
-		bCadastrarEstagio = new JButton("Cadastrar Estagio");
+		bCadastrarEstagio = new JButton("Cadastrar Estágio");
+		bCadastrarTurma = new JButton("Cadastrar Turma");
 		bSair = new JButton("Sair");
 		
-		setLayout(new GridLayout(2, 6));
+		setLayout(new GridLayout(3, 6));
 		add(lMensagem);
 		add(lVazio1);
 		add(lVazio2);
@@ -49,7 +58,13 @@ public class Principal extends JFrame {
 		add(lVazio6);
 		add(lVazio7);
 		add(lVazio8);
-		
+		add(lTurma);
+		add(bCadastrarTurma);
+		add(lVazio9);
+		add(lVazio10);
+		add(lVazio11);
+		add(lVazio12);
+
 		//add(bSair);
 
 		setVisible(true);
