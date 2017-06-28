@@ -100,6 +100,8 @@ public class VisaoEspecial extends JFrame implements ActionListener {
 			tfSemestreQualificacao.setText(null);
 			tfDataDefesa.setText(null);
 			tfProfessor.setText(null);
+			tfTaxaPaga.setText(null);
+			tfSemestreCursando.setText(null);
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}
