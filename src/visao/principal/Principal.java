@@ -14,11 +14,12 @@ public class Principal extends JFrame implements ActionListener {
 	public JButton 	bCadastrarDisciplina, 
 					bCadastrarTurma, 
 					bCadastrarProfessor, 
-					bCadastrarAluno;
+					bCadastrarAluno, 
+					bSair;
 	
 	public Principal() {
 		setTitle("Sistema de Cadastro da Universide de Brasília");
-		setSize(300, 500);
+		setSize(350, 200);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		lMensagem = new JLabel("\t\t\t\t\t\t\t Escolha uma opção:");
@@ -26,8 +27,9 @@ public class Principal extends JFrame implements ActionListener {
 		bCadastrarTurma = new JButton("Cadastrar Turma");
 		bCadastrarProfessor = new JButton("Cadastrar Professor");
 		bCadastrarAluno = new JButton("Cadastrar Aluno");
+		bSair = new JButton("Sair");
 		
-		setLayout(new GridLayout(5, 1));
+		setLayout(new GridLayout(6, 1));
 		add(lMensagem);
 		add(bCadastrarDisciplina);
 		bCadastrarDisciplina.addActionListener(this);
@@ -37,7 +39,8 @@ public class Principal extends JFrame implements ActionListener {
 		bCadastrarProfessor.addActionListener(this);
 		add(bCadastrarAluno);
 		bCadastrarAluno.addActionListener(this);
-		
+		add(bSair);
+
 		setVisible(true);
 		
 	}
