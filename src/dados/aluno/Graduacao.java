@@ -11,7 +11,10 @@ public class Graduacao extends Aluno {
 		
 	}
 	
-	public Graduacao(String formaIngresso, String curso, Date provavelFormatura) {
+	public Graduacao(int matricula, String nome, String semestreIngresso, String formaIngresso, String curso, Date provavelFormatura) {
+		setMatricula(matricula);
+		setNome(nome);
+		setSemestreIngresso(semestreIngresso);
 		setFormaIngresso(formaIngresso);
 		setCurso(curso);
 		setProvavelFormatura(provavelFormatura);
