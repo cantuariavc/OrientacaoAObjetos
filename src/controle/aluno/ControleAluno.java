@@ -3,12 +3,12 @@ package controle.aluno;
 import java.util.ArrayList;
 import dados.aluno.*;
 
-public class controleAluno {
+public class ControleAluno {
 	private ArrayList<Graduacao> listaGraduacao;
 	private ArrayList<PosGraduacao> listaPosGraduacao;
 	private ArrayList<Especial> listaEspecial;
 	
-	public controleAluno() {
+	public ControleAluno() {
 		listaGraduacao = new ArrayList<>();
 		listaPosGraduacao = new ArrayList<>();
 		listaEspecial = new ArrayList<>();
