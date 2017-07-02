@@ -114,6 +114,7 @@ public class VisaoAssociado extends JFrame implements ActionListener {
 		add(bLimpar);
 		bLimpar.addActionListener(this);
 		add(bCadastrar);
+		bCadastrar.addActionListener(this);
 		add(lVazio2);
 		add(bVoltar);
 		bVoltar.addActionListener(this);
@@ -137,6 +138,8 @@ public class VisaoAssociado extends JFrame implements ActionListener {
 			tfAnoDoutorado.setText(null);
 			tfTituloTese.setText(null);
 			tfAreaDePesquisa.setText(null);
+		} else if(e.getSource() == bCadastrar) {
+			
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}

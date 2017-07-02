@@ -66,6 +66,7 @@ public class VisaoTurma extends JFrame implements ActionListener {
 		add(bLimpar);
 		bLimpar.addActionListener(this);
 		add(bCadastrar);
+		bCadastrar.addActionListener(this);
 		add(lVazio2);
 		add(bVoltar);
 		bVoltar.addActionListener(this);

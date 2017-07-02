@@ -84,6 +84,7 @@ public class VisaoEspecial extends JFrame implements ActionListener {
 		add(bLimpar);
 		bLimpar.addActionListener(this);
 		add(bCadastrar);
+		bCadastrar.addActionListener(this);
 		add(lVazio2);
 		add(bVoltar);
 		bVoltar.addActionListener(this);
@@ -102,6 +103,8 @@ public class VisaoEspecial extends JFrame implements ActionListener {
 			tfProfessor.setText(null);
 			tfTaxaPaga.setText(null);
 			tfSemestreCursando.setText(null);
+		} else if(e.getSource() == bCadastrar) {
+			
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}

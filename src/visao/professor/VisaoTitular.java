@@ -126,6 +126,7 @@ public class VisaoTitular extends JFrame implements ActionListener {
 		add(bLimpar);
 		bLimpar.addActionListener(this);
 		add(bCadastrar);
+		bCadastrar.addActionListener(this);
 		add(lVazio2);
 		add(bVoltar);
 		bVoltar.addActionListener(this);
@@ -151,6 +152,8 @@ public class VisaoTitular extends JFrame implements ActionListener {
 			tfAreaDePesquisa.setText(null);
 			tfConcurso.setText(null);
 			tfDataDeAdmissao.setText(null);
+		} else if(e.getSource() == bCadastrar) {
+			
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}

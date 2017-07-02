@@ -66,6 +66,7 @@ public class VisaoEstagio extends JFrame implements ActionListener {
 		add(bLimpar);
 		bLimpar.addActionListener(this);
 		add(bCadastrar);
+		bCadastrar.addActionListener(this);
 		add(lVazio2);
 		add(bVoltar);
 		bVoltar.addActionListener(this);
@@ -81,6 +82,8 @@ public class VisaoEstagio extends JFrame implements ActionListener {
 			tfLocalDeEstagio.setText(null);
 			tfResponsavel.setText(null);
 			tfProfessor.setText(null);
+		} else if(e.getSource() == bCadastrar) {
+			
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}

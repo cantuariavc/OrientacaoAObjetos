@@ -72,6 +72,7 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 		add(bLimpar);
 		bLimpar.addActionListener(this);
 		add(bCadastrar);
+		bCadastrar.addActionListener(this);
 		add(lVazio2);
 		add(bVoltar);
 		bVoltar.addActionListener(this);
@@ -88,6 +89,8 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 			tfSemestreQualificacao.setText(null);
 			tfDataDefesa.setText(null);
 			tfProfessor.setText(null);
+		} else if(e.getSource() == bCadastrar) {
+			
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}
