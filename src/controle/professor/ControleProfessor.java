@@ -11,6 +11,7 @@ public class ControleProfessor {
 	private ArrayList<Adjunto> listaAdjunto;
 	private ArrayList<Associado> listaAssociado;
 	private ArrayList<Titular> listaTitular;
+	private ArrayList<Professor> listaProfessor;
 	
 	public ControleProfessor() {
 		listaAuxiliar = new ArrayList<>();
@@ -22,22 +23,40 @@ public class ControleProfessor {
 
 	public void cadastraAuxiliar(Auxiliar professorAuxiliar) {
 		listaAuxiliar.add(professorAuxiliar);
+		listaProfessor.add(professorAuxiliar);
 	}
 	
 	public void cadastraAssistente(Assistente professorAssistente) {
 		listaAssistente.add(professorAssistente);
+		listaProfessor.add(professorAssistente);
+
 	}
 	
 	public void cadastraAdjunto(Adjunto professorAdjunto) {
 		listaAdjunto.add(professorAdjunto);
+		listaProfessor.add(professorAdjunto);
+
 	}
 	
 	public void cadastraAssociado(Associado professorAssociado) {
 		listaAssociado.add(professorAssociado);
+		listaProfessor.add(professorAssociado);
+
 	}
 	
 	public void cadastraTitular(Titular professorTitular) {
 		listaTitular.add(professorTitular);
+		listaProfessor.add(professorTitular);
+
+	}
+	
+	public Professor confirmaProfessor(int professor) {
+		for (Professor p : listaProfessor) {
+			if (p.getMatriculaSiape() == professor) {
+				return p;
+			}
+		}
+		return null;
 	}
 	
 }
