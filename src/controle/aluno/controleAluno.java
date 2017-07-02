@@ -22,7 +22,7 @@ public class controleAluno {
 		listaPosGraduacao.add(alunoPosGraduacao);
 	}
 	
-	public void cadastrarEspecial(Especial alunoEspecial) {
+	public void cadastraEspecial(Especial alunoEspecial) {
 		listaEspecial.add(alunoEspecial);
 	}
 	
