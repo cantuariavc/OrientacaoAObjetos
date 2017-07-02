@@ -3,11 +3,20 @@ package visao.aluno;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import controle.excecao.InformacaoFaltanteException;
+import controle.excecao.OrientadorNaoAtribuidoException;
+import controle.executora.Executora;
+import dados.aluno.PosGraduacao;
+import dados.professor.Professor;
+import jdk.nashorn.internal.runtime.ListAdapter;
 
 public class VisaoPosGraduacao extends JFrame implements ActionListener {
 
@@ -32,7 +41,7 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 
 	public VisaoPosGraduacao() {
 		setTitle("Cadastro Aluno");
-		setSize(400, 280);
+		setSize(430, 280);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		lMensagem = new JLabel("\t\t\t\t\t\t\t Cadastro Pós-Grduação");
@@ -41,7 +50,7 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 		lSemestreIngresso = new JLabel("\t\t\t\t\t\t\t Semestre de Ingresso:");
 		lSemestreQualificacao = new JLabel("\t\t\t\t\t\t\t Semestre de Qualificação:");
 		lDataDefesa = new JLabel("\t\t\t\t\t\t\t Data de Defesa:");
-		lProfessor = new JLabel("\t\t\t\t\t\t\t Professor:");
+		lProfessor = new JLabel("\t\t\t\t\t\t\t Matrícula Siape do Professor:");
 		lVazio1 = new JLabel();
 		lVazio2 = new JLabel();
 		tfMatricula = new JTextField(15);
@@ -90,7 +99,46 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 			tfDataDefesa.setText(null);
 			tfProfessor.setText(null);
 		} else if(e.getSource() == bCadastrar) {
-			
+			try{
+				if (!tfMatricula.getText().isEmpty()) {
+					if (!tfNome.getText().trim().isEmpty()) {
+						if (!tfSemestreIngresso.getText().trim().isEmpty()) {
+							if (!tfSemestreQualificacao.getText().trim().isEmpty()) {
+								if (!tfDataDefesa.getText().trim().isEmpty()) {
+									if (!tfProfessor.getText().trim().isEmpty()) {
+										Professor p = Executora.professor.confirmaProfessor(Integer.parseInt(tfProfessor.getText()));
+										if (p != null) {
+											Executora.aluno.cadastraPosGraduacao(new PosGraduacao(Integer.parseInt(tfMatricula.getText()), tfNome.getText(), tfSemestreIngresso.getText(), tfSemestreQualificacao.getText(), new Date(tfDataDefesa.getText()), p));
+										} else {
+											throw new OrientadorNaoAtribuidoException("Matrícula Siape do Professor não cadastrado!");
+										}
+									} else {
+										throw new OrientadorNaoAtribuidoException("Matrícula Siape do Professor não informada!");	
+									}
+								} else {
+									throw new InformacaoFaltanteException("Data de Defesa não informada!");
+								}
+							} else {
+								throw new InformacaoFaltanteException("Semestre de Qualificação não informado!");
+							}
+						} else {
+							throw new InformacaoFaltanteException("Semestre de Ingresso não informado!");
+						}
+					} else {
+						throw new InformacaoFaltanteException("Nome não informado!");
+					}
+				} else {
+					throw new InformacaoFaltanteException("Matrícula não informada!");
+				}
+			} catch (InformacaoFaltanteException e1) {
+				e1.printStackTrace();
+			} catch (NumberFormatException e2) {
+				JOptionPane.showMessageDialog(null, "Coloque somente números na matrícula!");
+			} catch (IllegalArgumentException e3) {
+				JOptionPane.showMessageDialog(null, "Coloque a provável formatura no modelo dia/mês/ano!");
+			} catch (OrientadorNaoAtribuidoException e4) {
+				JOptionPane.showMessageDialog(null, e4.getMessage());
+			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}
