@@ -3,6 +3,9 @@ package visao.aluno;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JFrame;
@@ -11,10 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import controle.excecao.InformacaoFaltanteException;
-import controle.excecao.OrientadorNaoAtribuidoException;
 import controle.executora.Executora;
 import dados.aluno.PosGraduacao;
+import dados.excecao.InformacaoFaltanteException;
+import dados.excecao.OrientadorNaoAtribuidoException;
 import dados.professor.Professor;
 import jdk.nashorn.internal.runtime.ListAdapter;
 
@@ -53,12 +56,12 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 		lProfessor = new JLabel("\t\t\t\t\t\t\t Matrícula Siape do Professor:");
 		lVazio1 = new JLabel();
 		lVazio2 = new JLabel();
-		tfMatricula = new JTextField(15);
-		tfNome = new JTextField(15);
-		tfSemestreIngresso = new JTextField(15);
-		tfSemestreQualificacao = new JTextField(15);
-		tfDataDefesa = new JTextField(15);
-		tfProfessor = new JTextField(15);
+		tfMatricula = new JTextField("Ex.: 123456789", 15);
+		tfNome = new JTextField("Ex.: Fulano de Tal", 15);
+		tfSemestreIngresso = new JTextField("Ex.: 1/2010", 15);
+		tfSemestreQualificacao = new JTextField("Ex.: 1/2010", 15);
+		tfDataDefesa = new JTextField("Ex.: 1/1/2010", 15);
+		tfProfessor = new JTextField("Ex.: 123456789", 15);
 		bLimpar = new JButton("Limpar");
 		bCadastrar = new JButton("Cadastrar");
 		bVoltar = new JButton("Voltar");
@@ -106,9 +109,16 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 							if (!tfSemestreQualificacao.getText().trim().isEmpty()) {
 								if (!tfDataDefesa.getText().trim().isEmpty()) {
 									if (!tfProfessor.getText().trim().isEmpty()) {
-										Professor p = Executora.professor.confirmaProfessor(Integer.parseInt(tfProfessor.getText()));
-										if (p != null) {
-											Executora.aluno.cadastraPosGraduacao(new PosGraduacao(Integer.parseInt(tfMatricula.getText()), tfNome.getText(), tfSemestreIngresso.getText(), tfSemestreQualificacao.getText(), new Date(tfDataDefesa.getText()), p));
+										Professor professor = Executora.professor.confirmaProfessor(Integer.parseInt(tfProfessor.getText()));
+										if (professor != null) {
+											try {
+												DateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+												Date date = (Date)formatter.parse(tfDataDefesa.getText());
+												Executora.aluno.cadastraPosGraduacao(new PosGraduacao(Integer.parseInt(tfMatricula.getText()), tfNome.getText(), tfSemestreIngresso.getText(), tfSemestreQualificacao.getText(), date, professor));
+												JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!");
+											} catch (ParseException e1) {
+												e1.printStackTrace();
+											}
 										} else {
 											throw new OrientadorNaoAtribuidoException("Matrícula Siape do Professor não cadastrado!");
 										}
@@ -135,7 +145,7 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 			} catch (NumberFormatException e2) {
 				JOptionPane.showMessageDialog(null, "Coloque somente números na matrícula!");
 			} catch (IllegalArgumentException e3) {
-				JOptionPane.showMessageDialog(null, "Coloque a provável formatura no modelo dia/mês/ano!");
+				JOptionPane.showMessageDialog(null, "Coloque a data de defesa no modelo dia/mês/ano!");
 			} catch (OrientadorNaoAtribuidoException e4) {
 				JOptionPane.showMessageDialog(null, e4.getMessage());
 			}
