@@ -128,10 +128,8 @@ public class VisaoEstagio extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			} catch (NumberFormatException e2) {
 				JOptionPane.showMessageDialog(null, "Coloque somente números na matrícula!");
-			} catch (IllegalArgumentException e3) {
-				JOptionPane.showMessageDialog(null, "Coloque a data de defesa no modelo dia/mês/ano!");
-			} catch (OrientadorNaoAtribuidoException e4) {
-				JOptionPane.showMessageDialog(null, e4.getMessage());
+			} catch (OrientadorNaoAtribuidoException e3) {
+				JOptionPane.showMessageDialog(null, e3.getMessage());
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();
