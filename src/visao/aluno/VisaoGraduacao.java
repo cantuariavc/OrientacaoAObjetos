@@ -3,6 +3,9 @@ package visao.aluno;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JFrame;
@@ -11,11 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import controle.excecao.DisciplinaNaoAtribuidaException;
-import controle.excecao.InformacaoFaltanteException;
-import controle.excecao.ProfessorNaoAtribuidoException;
 import controle.executora.Executora;
 import dados.aluno.Graduacao;
+import dados.excecao.DisciplinaNaoAtribuidaException;
+import dados.excecao.InformacaoFaltanteException;
+import dados.excecao.ProfessorNaoAtribuidoException;
 
 public class VisaoGraduacao extends JFrame implements ActionListener {
 
@@ -52,12 +55,12 @@ public class VisaoGraduacao extends JFrame implements ActionListener {
 		lProvavelFormatura = new JLabel("\t\t\t\t\t\t\t Provável Formatura:");
 		lVazio1 = new JLabel();
 		lVazio2 = new JLabel();
-		tfMatricula = new JTextField(15);
-		tfNome = new JTextField(15);
-		tfSemestreIngresso = new JTextField(15);
-		tfFormaIngresso = new JTextField(15);
-		tfCurso = new JTextField(15);
-		tfProvavelFormatura = new JTextField(15);
+		tfMatricula = new JTextField("Ex.: 123456789", 15);
+		tfNome = new JTextField("Ex.: Fulando de Tal", 15);
+		tfSemestreIngresso = new JTextField("Ex.: 2/2000", 15);
+		tfFormaIngresso = new JTextField("Ex.: Vestivular", 15);
+		tfCurso = new JTextField("Ex.: Eng. de Software", 15);
+		tfProvavelFormatura = new JTextField("Ex.: 1/1/2020", 15);
 		bLimpar = new JButton("Limpar");
 		bCadastrar = new JButton("Cadastrar");
 		bVoltar = new JButton("Voltar");
@@ -106,7 +109,14 @@ public class VisaoGraduacao extends JFrame implements ActionListener {
 							if (!tfFormaIngresso.getText().trim().isEmpty()) {
 								if (!tfCurso.getText().trim().isEmpty()) {
 									if (!tfProvavelFormatura.getText().trim().isEmpty()) {
-										Executora.aluno.cadastraGraduacao(new Graduacao(Integer.parseInt(tfMatricula.getText()), tfNome.getText(), tfSemestreIngresso.getText(), tfFormaIngresso.getText(), tfCurso.getText(), new Date(tfProvavelFormatura.getText())));
+										try {
+											DateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+											Date date = (Date)formatter.parse(tfProvavelFormatura.getText());
+											Executora.aluno.cadastraGraduacao(new Graduacao(Integer.parseInt(tfMatricula.getText()), tfNome.getText(), tfSemestreIngresso.getText(), tfFormaIngresso.getText(), tfCurso.getText(), date));
+											JOptionPane.showMessageDialog(null, "Aluno cadastrado com sucesso!");
+										} catch (ParseException e1) {
+											e1.printStackTrace();
+										}
 									} else {
 										throw new InformacaoFaltanteException("Provavel Formatura não informada!");	
 									}
