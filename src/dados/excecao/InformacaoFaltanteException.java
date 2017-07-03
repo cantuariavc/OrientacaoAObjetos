@@ -1,4 +1,4 @@
-package controle.excecao;
+package dados.excecao;
 
 public class InformacaoFaltanteException extends Exception {
 

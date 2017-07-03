@@ -1,4 +1,4 @@
-package controle.excecao;
+package dados.excecao;
 
 public class OrientadorNaoAtribuidoException extends Exception {
 
