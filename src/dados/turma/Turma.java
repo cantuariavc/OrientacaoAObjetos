@@ -1,4 +1,6 @@
 package dados.turma;
+import java.util.ArrayList;
+
 import dados.disciplina.*;
 import dados.professor.*;
 
@@ -9,8 +11,10 @@ public class Turma {
 	private Disciplina disciplina;
 	private Professor professor;
 	
+	static private ArrayList<Turma> listaTurma;
+	
 	public Turma() {
-		
+		listaTurma = new ArrayList<>();
 	}
 	
 	public Turma(int codigo, String horario, Disciplina disciplina, Professor professor) {
@@ -47,6 +51,10 @@ public class Turma {
 	}
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
+	}
+	
+	public void cadastraTurma(Turma turma) {
+		listaTurma.add(turma);
 	}
 	
 }

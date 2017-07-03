@@ -1,12 +1,18 @@
 package dados.disciplina;
 
+import java.util.ArrayList;
+
 public class Disciplina {
 
 	private String nome;
 	private int cargaHoraria;
 	
+	static private ArrayList<Disciplina> listaDisciplina;
+	static private ArrayList<Estagio> listaEstagio;
+	
 	public Disciplina() {
-		
+		listaDisciplina = new ArrayList<>();
+		listaEstagio = new ArrayList<>();
 	}
 	
 	public Disciplina(String nome, int cargaHoraria) {
@@ -27,6 +33,14 @@ public class Disciplina {
 	}
 	public void setCargaHoraria(int cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
+	}
+	
+	public void cadastraDisciplina(Disciplina disciplina) {
+		listaDisciplina.add(disciplina);
+	}
+	
+	public void cadastraEstagio(Estagio estagio) {
+		listaEstagio.add(estagio);
 	}
 	
 }
