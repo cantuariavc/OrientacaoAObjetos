@@ -41,6 +41,17 @@ public class Disciplina {
 	
 	public void cadastraEstagio(Estagio estagio) {
 		listaEstagio.add(estagio);
+		listaDisciplina.add(estagio);
+
+	}
+	
+	public Disciplina confirmaDisciplina(String disciplina) {
+		for (Disciplina d : listaDisciplina) {
+			if (d.getNome() == disciplina) {
+				return d;
+			}
+		}
+		return null;
 	}
 	
 }
