@@ -89,6 +89,8 @@ public class VisaoDisciplina extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			} catch (NumberFormatException e2) {
 				JOptionPane.showMessageDialog(null, "Coloque somente números na carga horária!");
+			} catch (Exception e3) {
+				
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();

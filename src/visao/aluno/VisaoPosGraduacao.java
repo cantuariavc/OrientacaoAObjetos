@@ -148,6 +148,8 @@ public class VisaoPosGraduacao extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Coloque a data de defesa no modelo dia/mês/ano!");
 			} catch (OrientadorNaoAtribuidoException e4) {
 				JOptionPane.showMessageDialog(null, e4.getMessage());
+			} catch (Exception e5) {
+				
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();

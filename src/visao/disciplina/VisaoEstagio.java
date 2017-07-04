@@ -130,6 +130,8 @@ public class VisaoEstagio extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Coloque somente números na matrícula!");
 			} catch (OrientadorNaoAtribuidoException e3) {
 				JOptionPane.showMessageDialog(null, e3.getMessage());
+			} catch (Exception e4) {
+				
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();

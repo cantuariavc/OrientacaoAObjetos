@@ -165,7 +165,7 @@ public class VisaoAssociado extends JFrame implements ActionListener {
 														if (!tfAnoDoutorado.getText().trim().isEmpty()) {
 															if (!tfTituloTese.getText().trim().isEmpty()) {
 																if (!tfAreaDePesquisa.getText().trim().isEmpty()) {
-																	Executora.professor.cadastraAssociado(new Associado(Integer.parseInt(tfMatriculaSiape.getText()), Integer.parseInt(tfMatriculaFUP.getText()), tfFormacao.getText(), Float.parseFloat(salario), tfGraduacao.getText(), Integer.parseInt(tfAnoGraduacao.getText()), tfMestrado.getText(), Integer.parseInt(tfAnoMestrado.getText()), tfTituloDissertacao.getText(), tfDoutorado.getText(), Integer.parseInt(tfAnoDoutorado.getText()), tfTituloTese.getText(), tfAreaDePesquisa.getText()));
+																	Executora.professor.cadastraAssociado(new Associado());
 																	JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso!");
 																} else {
 																	throw new InformacaoFaltanteException("Área de Pesquisa não informada!");
@@ -210,6 +210,8 @@ public class VisaoAssociado extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			} catch (NumberFormatException e2) {
 				JOptionPane.showMessageDialog(null, "Coloque somente números nas matrículas, salário, ano da graduação, ano do mestrado e ano do doutorado!");
+			} catch (Exception e3) {
+				
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();

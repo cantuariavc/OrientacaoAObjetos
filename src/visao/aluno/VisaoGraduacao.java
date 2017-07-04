@@ -141,9 +141,9 @@ public class VisaoGraduacao extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Coloque somente números na matrícula!");
 			} catch (IllegalArgumentException e3) {
 				JOptionPane.showMessageDialog(null, "Coloque a provável formatura no modelo dia/mês/ano!");
-			}
-			
-						
+			} catch (Exception e4) {
+				
+			}			
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}

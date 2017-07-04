@@ -243,6 +243,8 @@ public class VisaoTitular extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			} catch (NumberFormatException e2) {
 				JOptionPane.showMessageDialog(null, "Coloque somente números nas matrículas, salário, ano da graduação, ano do mestrado e ano do doutorado!");
+			} catch (Exception e3) {
+				
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();

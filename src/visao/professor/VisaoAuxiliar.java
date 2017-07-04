@@ -137,6 +137,8 @@ public class VisaoAuxiliar extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			} catch (NumberFormatException e2) {
 				JOptionPane.showMessageDialog(null, "Coloque somente números nas matrículas, salário e ano da graduação!");
+			} catch (Exception e3) {
+				
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();

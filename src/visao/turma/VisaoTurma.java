@@ -126,6 +126,8 @@ public class VisaoTurma extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, e4.getMessage());
 			} catch (DisciplinaNaoAtribuidaException e5) {
 				JOptionPane.showMessageDialog(null, e5.getMessage());
+			} catch (Exception e6) {
+				
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();

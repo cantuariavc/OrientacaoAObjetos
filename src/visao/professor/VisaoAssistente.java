@@ -166,6 +166,8 @@ public class VisaoAssistente extends JFrame implements ActionListener {
 				e1.printStackTrace();
 			} catch (NumberFormatException e2) {
 				JOptionPane.showMessageDialog(null, "Coloque somente números nas matrículas, salário, ano da graduação e ano do mestrado!");
+			} catch (Exception e3) {
+				
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();

@@ -171,6 +171,8 @@ public class VisaoEspecial extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, e4.getMessage());
 			} catch (NullPointerException e5) {
 				JOptionPane.showMessageDialog(null, "Matrícula Siape do Professor não cadastrada!");
+			} catch (Exception e6) {
+				
 			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();
