@@ -7,7 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import controle.executora.Executora;
+import dados.excecao.InformacaoFaltanteException;
+import dados.professor.Adjunto;
+import dados.professor.Associado;
 
 public class VisaoAssociado extends JFrame implements ActionListener {
 
@@ -65,19 +71,19 @@ public class VisaoAssociado extends JFrame implements ActionListener {
 		lAreaDePesquisa = new JLabel("\t\t\t\t\t\t\t Área de Pesquisa:");
 		lVazio1 = new JLabel();
 		lVazio2 = new JLabel();
-		tfMatriculaSiape = new JTextField(15);
-		tfMatriculaFUP = new JTextField(15);
-		tfFormacao = new JTextField(15);
-		tfSalario = new JTextField(15);
-		tfGraduacao = new JTextField(15);
-		tfAnoGraduacao = new JTextField(15);
-		tfMestrado = new JTextField(15);
-		tfAnoMestrado = new JTextField(15);
-		tfTituloDissertacao = new JTextField(15);
-		tfDoutorado = new JTextField(15);
-		tfAnoDoutorado = new JTextField(15);
-		tfTituloTese = new JTextField(15);
-		tfAreaDePesquisa = new JTextField(15);
+		tfMatriculaSiape = new JTextField("Ex.: 123456789", 15);
+		tfMatriculaFUP = new JTextField("Ex.: 123456789", 15);
+		tfFormacao = new JTextField("Ex.: Doutorado", 15);
+		tfSalario = new JTextField("Ex.: 10000,00", 15);
+		tfGraduacao = new JTextField("Ex.: Eng. de Tal", 15);
+		tfAnoGraduacao = new JTextField("Ex.: 2005", 15);
+		tfMestrado = new JTextField("Ex.: Eng. de Tal", 15);
+		tfAnoMestrado = new JTextField("Ex.: 2007", 15);
+		tfTituloDissertacao = new JTextField("Ex.: Beltrano", 15);
+		tfDoutorado = new JTextField("Ex.: Eng. de Tal", 15);
+		tfAnoDoutorado = new JTextField("Ex.: 2011", 15);
+		tfTituloTese = new JTextField("Ex.: Ciclano", 15);
+		tfAreaDePesquisa = new JTextField("Ex.: Tal", 15);
 		bLimpar = new JButton("Limpar");
 		bCadastrar = new JButton("Cadastrar");
 		bVoltar = new JButton("Voltar");
@@ -139,7 +145,72 @@ public class VisaoAssociado extends JFrame implements ActionListener {
 			tfTituloTese.setText(null);
 			tfAreaDePesquisa.setText(null);
 		} else if(e.getSource() == bCadastrar) {
-			
+			try{
+				if (!tfMatriculaSiape.getText().isEmpty()) {
+					if (!tfMatriculaFUP.getText().trim().isEmpty()) {
+						if (!tfFormacao.getText().trim().isEmpty()) {
+							if (!tfSalario.getText().trim().isEmpty()) {
+								String salario = tfSalario.getText();
+								for (int i = 0; i < salario.length(); i++) {
+									if (salario.charAt(i) == ',') {
+										salario = salario.replaceAll(",", ".");
+								    }
+								}
+								if (!tfGraduacao.getText().trim().isEmpty()) {
+									if (!tfAnoGraduacao.getText().trim().isEmpty()) {
+										if (!tfMestrado.getText().trim().isEmpty()) {
+											if (!tfAnoMestrado.getText().trim().isEmpty()) {
+												if (!tfTituloDissertacao.getText().trim().isEmpty()) {
+													if (!tfDoutorado.getText().trim().isEmpty()) {
+														if (!tfAnoDoutorado.getText().trim().isEmpty()) {
+															if (!tfTituloTese.getText().trim().isEmpty()) {
+																if (!tfAreaDePesquisa.getText().trim().isEmpty()) {
+																	Executora.professor.cadastraAssociado(new Associado(Integer.parseInt(tfMatriculaSiape.getText()), Integer.parseInt(tfMatriculaFUP.getText()), tfFormacao.getText(), Float.parseFloat(salario), tfGraduacao.getText(), Integer.parseInt(tfAnoGraduacao.getText()), tfMestrado.getText(), Integer.parseInt(tfAnoMestrado.getText()), tfTituloDissertacao.getText(), tfDoutorado.getText(), Integer.parseInt(tfAnoDoutorado.getText()), tfTituloTese.getText(), tfAreaDePesquisa.getText()));
+																	JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso!");
+																} else {
+																	throw new InformacaoFaltanteException("Área de Pesquisa não informada!");
+																}
+															} else {
+																throw new InformacaoFaltanteException("Título da Tese não informado!");
+															}
+														} else {
+															throw new InformacaoFaltanteException("Ano do Doutorado não informado!");
+														}
+													} else {
+														throw new InformacaoFaltanteException("Doutorado não informado!");
+													}
+												} else {
+													throw new InformacaoFaltanteException("Título da Dissertação não informado!");
+												}
+											} else {
+												throw new InformacaoFaltanteException("Ano do Mestrado não informado!");
+											}
+										} else {
+											throw new InformacaoFaltanteException("Mestrado não informado!");
+										}
+									} else {
+										throw new InformacaoFaltanteException("Ano da Graduação não informada!");	
+									}
+								} else {
+									throw new InformacaoFaltanteException("Graduação não informada!");
+								}
+							} else {
+								throw new InformacaoFaltanteException("Salário não informado!");
+							}
+						} else {
+							throw new InformacaoFaltanteException("Formação não informada!");
+						}
+					} else {
+						throw new InformacaoFaltanteException("Matrícula FUP não informada!");
+					}
+				} else {
+					throw new InformacaoFaltanteException("Matrícula Siape não informada!");
+				}
+			} catch (InformacaoFaltanteException e1) {
+				e1.printStackTrace();
+			} catch (NumberFormatException e2) {
+				JOptionPane.showMessageDialog(null, "Coloque somente números nas matrículas, salário, ano da graduação, ano do mestrado e ano do doutorado!");
+			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}
