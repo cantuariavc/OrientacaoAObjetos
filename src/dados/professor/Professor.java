@@ -50,6 +50,7 @@ public class Professor {
 		listaAdjunto = new ArrayList<>();
 		listaAssociado = new ArrayList<>();
 		listaTitular = new ArrayList<>();
+		listaProfessor = new ArrayList<>();
 	}
 
 	public void cadastraAuxiliar(Auxiliar professorAuxiliar) {
