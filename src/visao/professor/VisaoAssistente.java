@@ -7,7 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import controle.executora.Executora;
+import dados.excecao.InformacaoFaltanteException;
+import dados.professor.Assistente;
+import dados.professor.Auxiliar;
 
 public class VisaoAssistente extends JFrame implements ActionListener {
 
@@ -53,15 +59,15 @@ public class VisaoAssistente extends JFrame implements ActionListener {
 		lTituloDissertacao = new JLabel("\t\t\t\t\t\t\t Título Dissertação:");
 		lVazio1 = new JLabel();
 		lVazio2 = new JLabel();
-		tfMatriculaSiape = new JTextField(15);
-		tfMatriculaFUP = new JTextField(15);
-		tfFormacao = new JTextField(15);
-		tfSalario = new JTextField(15);
-		tfGraduacao = new JTextField(15);
-		tfAnoGraduacao = new JTextField(15);
-		tfMestrado = new JTextField(15);
-		tfAnoMestrado = new JTextField(15);
-		tfTituloDissertacao = new JTextField(15);
+		tfMatriculaSiape = new JTextField("Ex.: 123456789", 15);
+		tfMatriculaFUP = new JTextField("Ex.: 123456789", 15);
+		tfFormacao = new JTextField("Ex.: Doutorado", 15);
+		tfSalario = new JTextField("Ex.: 10000,00", 15);
+		tfGraduacao = new JTextField("Ex.: Eng. de Tal", 15);
+		tfAnoGraduacao = new JTextField("Ex.: 2005", 15);
+		tfMestrado = new JTextField("Ex.: Eng. de Tal", 15);
+		tfAnoMestrado = new JTextField("Ex.: 2007", 15);
+		tfTituloDissertacao = new JTextField("Ex.: Beltrano", 15);
 		bLimpar = new JButton("Limpar");
 		bCadastrar = new JButton("Cadastrar");
 		bVoltar = new JButton("Voltar");
@@ -111,7 +117,56 @@ public class VisaoAssistente extends JFrame implements ActionListener {
 			tfAnoMestrado.setText(null);
 			tfTituloDissertacao.setText(null);
 		} else if(e.getSource() == bCadastrar) {
-			
+			try{
+				if (!tfMatriculaSiape.getText().isEmpty()) {
+					if (!tfMatriculaFUP.getText().trim().isEmpty()) {
+						if (!tfFormacao.getText().trim().isEmpty()) {
+							if (!tfSalario.getText().trim().isEmpty()) {
+								String salario = tfSalario.getText();
+								for (int i = 0; i < salario.length(); i++) {
+									if (salario.charAt(i) == ',') {
+										salario = salario.replaceAll(",", ".");
+								    }
+								}
+								if (!tfGraduacao.getText().trim().isEmpty()) {
+									if (!tfAnoGraduacao.getText().trim().isEmpty()) {
+										if (!tfMestrado.getText().trim().isEmpty()) {
+											if (!tfAnoMestrado.getText().trim().isEmpty()) {
+												if (!tfTituloDissertacao.getText().trim().isEmpty()) {
+													Executora.professor.cadastraAssistente(new Assistente(Integer.parseInt(tfMatriculaSiape.getText()), Integer.parseInt(tfMatriculaFUP.getText()), tfFormacao.getText(), Float.parseFloat(salario), tfGraduacao.getText(), Integer.parseInt(tfAnoGraduacao.getText()), tfMestrado.getText(), Integer.parseInt(tfAnoMestrado.getText()), tfTituloDissertacao.getText()));
+													JOptionPane.showMessageDialog(null, "Professor cadastrado com sucesso!");
+												} else {
+													throw new InformacaoFaltanteException("Título da Dissertação não informado!");
+												}
+											} else {
+												throw new InformacaoFaltanteException("Ano do Mestrado não informado!");
+											}
+										} else {
+											throw new InformacaoFaltanteException("Mestrado não informado!");
+										}
+									} else {
+										throw new InformacaoFaltanteException("Ano da Graduação não informada!");	
+									}
+								} else {
+									throw new InformacaoFaltanteException("Graduação não informada!");
+								}
+							} else {
+								throw new InformacaoFaltanteException("Salário não informado!");
+							}
+						} else {
+							throw new InformacaoFaltanteException("Formação não informada!");
+						}
+					} else {
+						throw new InformacaoFaltanteException("Matrícula FUP não informada!");
+					}
+				} else {
+					throw new InformacaoFaltanteException("Matrícula Siape não informada!");
+				}
+			} catch (InformacaoFaltanteException e1) {
+				e1.printStackTrace();
+			} catch (NumberFormatException e2) {
+				JOptionPane.showMessageDialog(null, "Coloque somente números nas matrículas, salário, ano da graduação e ano do mestrado!");
+			}
 		} else if (e.getSource() == bVoltar) {
 			dispose();
 		}
